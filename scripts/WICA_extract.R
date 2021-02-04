@@ -8,21 +8,10 @@ library(ggplot2)
 
 rm(list=ls())
 
-###############################################################################
-# Download NOAA data -- need to do this in separate script
+
 
 # Initials
-tar.dir <- "C:/Users/achildress/Documents/NOAA-data/" #location of tar.gz files
 data.dir <- paste(tar.dir,"data",sep="/") #location for text files
-
-# ### section to be filled in later downloading files to tar.dir
-
-# 
-# file_list<- list.files(path=tar.dir , pattern = "*.tar.gz", full.names = TRUE)
-# ldply(.data = file_list, .fun = untar, exdir = data.dir) #untar tarballs and save to data.dir
-
-###############################################################################
-
 
 # spatial data
 ##############################################################################
