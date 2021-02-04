@@ -1,14 +1,27 @@
 # nClimGrid batch download
 # ftp://ftp.ncdc.noaa.gov/pub/data/climgrid/
 
-library()
+library(sf)
+library(raster)
+library(dplyr)
+library(rgdal)
+library(plyr)
+library(HelpersMG)
+
+rm(list=ls())
 
 # Initials
-tar.dir <- "C:/Users/achildress/Documents/NOAA-data/" #location of tar.gz files
-data.dir <- paste(tar.dir,"data",sep="/") #location for text files
+data.url <- "ftp://ftp.ncdc.noaa.gov/pub/data/climgrid/"
+files.list <- read.csv("./nClimGrid-files.csv",header=F)
+tar.dir <- "D:/temp/" #location to save tar.gz files
+data.dir <- "D:/nClimGrid/" #location for text files
 
-# ### section to be filled in later downloading files to tar.dir
+# downloading files to tar.dir
+url<-paste(data.url,files.list[1,],sep="")
+setwd(tar.dir)
+wget(as.character(url, mode="wb"))
 
+# Extract tarballs
 file_list<- list.files(path=tar.dir , pattern = "*.tar.gz", full.names = TRUE)
 ldply(.data = file_list, .fun = untar, exdir = data.dir) #untar tarballs and save to data.dir
 
