@@ -67,8 +67,5 @@ plot(Sp_park,add=TRUE)
 writeRaster(x,paste(tar.dir,'WRST.tif',sep="/"),options=c('TFW=YES'))
 
 
-# extract single year
-data <- read.table(paste(data.dir,pnt.list,sep="/"))
-colnames(data)=c("Lat","Lon","PrecipC")
 
 

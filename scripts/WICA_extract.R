@@ -62,8 +62,5 @@ plot(Sp_park,add=TRUE)
 ggplot() + geom_raster(data = dfx, aes(x=Lon, y = Lat, fill=PrecipC)) 
 
 
-# extract single year
-data <- read.table(paste(data.dir,pnt.list,sep="/"))
-colnames(data)=c("Lat","Lon","PrecipC")
 
 
