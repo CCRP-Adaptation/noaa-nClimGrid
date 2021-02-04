@@ -17,9 +17,10 @@ tar.dir <- "D:/temp/" #location to save tar.gz files
 data.dir <- "D:/nClimGrid/" #location for text files
 
 # downloading files to tar.dir
-url<-paste(data.url,files.list[1,],sep="")
+
+url.list<-paste(data.url,files.list[1:5,],sep="")
 setwd(tar.dir)
-wget(as.character(url, mode="wb"))
+wget(as.character(url.list, mode="wb"))
 
 # Extract tarballs
 file_list<- list.files(path=tar.dir , pattern = "*.tar.gz", full.names = TRUE)
