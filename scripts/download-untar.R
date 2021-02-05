@@ -16,11 +16,11 @@ files.list <- read.csv("./nClimGrid-files.csv",header=F)
 tar.dir <- "D:/temp/" #location to save tar.gz files
 data.dir <- "D:/nClimGrid/" #location for text files
 
-# downloading files to tar.dir
-
-url.list<-paste(data.url,files.list[1:nrow(files.list),],sep="")
-setwd(tar.dir)
-wget(as.character(url.list, mode="wb"))
+# # downloading files to tar.dir -- commented out because already run
+# 
+# url.list<-paste(data.url,files.list[1:nrow(files.list),],sep="")
+# setwd(tar.dir)
+# wget(as.character(url.list, mode="wb"))
 
  # Extract tarballs
 file_list<- list.files(path=tar.dir , pattern = "*.tar.gz", full.names = TRUE)
