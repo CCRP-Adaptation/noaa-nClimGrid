@@ -28,10 +28,10 @@ ldply(.data = file_list, .fun = untar, exdir = data.dir) #untar tarballs and sav
 
 
 
-# create stack for each var by pattern - "prcp.alaska" [AK not for whole period]
-pnt.list<-list.files(path=data.dir, pattern=".prcp.alaska") #list all files by var
+## create stack for each var by pattern - "prcp.alaska" [AK not for whole period]
+#pnt.list<-list.files(path=data.dir, pattern=".prcp.alaska") #list all files by var
 
 
-# extract single year
-data <- read.table(paste(data.dir,pnt.list,sep="/"))
-colnames(data)=c("Lat","Lon","PrecipC")
+## extract single year
+#data <- read.table(paste(data.dir,pnt.list,sep="/"))
+#colnames(data)=c("Lat","Lon","PrecipC")
