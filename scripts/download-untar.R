@@ -1,5 +1,11 @@
-# nClimGrid batch download
+##############################################################################
+###   nClimGrid batch download  ##############################################
+##############################################################################
+
+# Downloads NOAA ClimGrid files from FTP and stores on external hard drive
 # ftp://ftp.ncdc.noaa.gov/pub/data/climgrid/
+
+# Each user will store these files locally for faster retrieval than downloading each time
 
 library(HelpersMG)
 library(plyr)
@@ -14,9 +20,9 @@ data.dir <- "D:/nClimGrid/" #location for text files
 
 # # downloading files to tar.dir -- commented out because already run
 
-#url.list<-paste(data.url,files.list[1:nrow(files.list),],sep="")
-#setwd(tar.dir)
-#wget(as.character(url.list, mode="wb"))
+url.list<-paste(data.url,files.list[1:nrow(files.list),],sep="")
+setwd(tar.dir)
+wget(as.character(url.list, mode="wb"))
 
  # Extract tarballs
 file_list<- list.files(path=tar.dir , pattern = "*.tar.gz", full.names = TRUE)
