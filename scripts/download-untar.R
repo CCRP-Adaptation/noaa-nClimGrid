@@ -3,7 +3,7 @@
 ##############################################################################
 
 # Downloads NOAA ClimGrid files from FTP and stores on external hard drive
-# ftp://ftp.ncdc.noaa.gov/pub/data/climgrid/
+# https://www.ncei.noaa.gov/pub/data/climgrid/
 
 # Each user will store these files locally for faster retrieval than downloading each time
 
@@ -13,8 +13,11 @@ library(plyr)
 rm(list=ls())
 
 # Initials
-data.url <- "ftp://ftp.ncdc.noaa.gov/pub/data/climgrid/"
-files.list <- read.csv("./nClimGrid-files.csv",header=F)
+data.url <- "https://www.ncei.noaa.gov/pub/data/climgrid/" #site location of tar.gz
+files.list <- read.csv("./nClimGrid-files_0121-0821.csv",header=F) #csv w/ files to download
+# if updating, copy newest files from data.url and paste in new csv, then add to complete list
+
+
 tar.dir <- "D:/temp/" #location to save tar.gz files
 data.dir <- "D:/nClimGrid/" #location for text files
 
@@ -28,12 +31,4 @@ wget(as.character(url.list, mode="wb"))
 file_list<- list.files(path=tar.dir , pattern = "*.tar.gz", full.names = TRUE)
 ldply(.data = file_list, .fun = untar, exdir = data.dir) #untar tarballs and save to data.dir
 
-
-
-## create stack for each var by pattern - "prcp.alaska" [AK not for whole period]
-#pnt.list<-list.files(path=data.dir, pattern=".prcp.alaska") #list all files by var
-
-
-## extract single year
-#data <- read.table(paste(data.dir,pnt.list,sep="/"))
-#colnames(data)=c("Lat","Lon","PrecipC")
+do.call(file.remove, list(list.files(tar.dir, full.names = TRUE)))
